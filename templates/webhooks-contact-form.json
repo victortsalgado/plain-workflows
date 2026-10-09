@@ -1,0 +1,55 @@
+{
+ "name": "Contact form",
+ "nodes": [
+  {
+   "parameters": {
+    "httpMethod": "POST",
+    "path": "contact",
+    "authentication": "headerAuth",
+    "responseMode": "responseNode",
+    "options": {}
+   },
+   "type": "n8n-nodes-base.webhook",
+   "typeVersion": 2.2,
+   "position": [
+    0,
+    0
+   ],
+   "id": "bf4859f7-6e7f-413e-bdff-17046dffd2dd",
+   "name": "Webhook",
+   "webhookId": "838b25e0-a593-4e2d-a3cd-eb3228f6de16"
+  },
+  {
+   "parameters": {
+    "respondWith": "text",
+    "responseBody": "=Thanks, {{ $json.body.name }}! We got your message.",
+    "options": {}
+   },
+   "type": "n8n-nodes-base.respondToWebhook",
+   "typeVersion": 1.5,
+   "position": [
+    224,
+    0
+   ],
+   "id": "162caa7c-afd6-4a4e-bd1c-290c7c73653f",
+   "name": "Respond to Webhook"
+  }
+ ],
+ "connections": {
+  "Webhook": {
+   "main": [
+    [
+     {
+      "node": "Respond to Webhook",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  }
+ },
+ "settings": {
+  "executionOrder": "v1"
+ },
+ "pinData": {}
+}

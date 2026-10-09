@@ -6,7 +6,8 @@
 <p>The finished workflow from each Plain Workflows tutorial. To use one: click Copy JSON, open an empty workflow in n8n
 and paste (Ctrl+V or Cmd+V), or download the file and use Import from File. Credentials are never included: add your own.</p>
 <section id="http-request-weather-alert"><h2>n8n HTTP Request node: weather alert</h2>
-<p><a href="https://youtu.be/0UFrOi9PawE">Watch the video</a> · <a href="http-request-weather-alert.json" download>Download JSON</a> · <button data-f="http-request-weather-alert.json">Copy JSON</button></p></section>
+<p><a href="https://youtu.be/0UFrOi9PawE">Watch the video</a> · <a href="http-request-weather-alert.json" download>Download JSON</a> · <button data-f="http-request-weather-alert.json">Copy JSON</button></p></section><section id="webhooks-contact-form"><h2>n8n Webhooks: contact form with a reply</h2><p class="p">You will need: Header Auth credential, if you keep the header key (create your own credential in n8n).</p>
+<p><a href="https://youtu.be/Iua45TakApc">Watch the video</a> · <a href="webhooks-contact-form.json" download>Download JSON</a> · <button data-f="webhooks-contact-form.json">Copy JSON</button></p></section>
 <script>document.querySelectorAll('button[data-f]').forEach(function(b){b.onclick=function(){fetch(b.dataset.f).then(function(r){return r.text()})
 .then(function(t){navigator.clipboard.writeText(t);b.textContent='Copied';setTimeout(function(){b.textContent='Copy JSON'},1500)})}});</script>
 </body></html>

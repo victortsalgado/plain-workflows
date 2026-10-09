@@ -4,5 +4,13 @@
   "titulo": "n8n HTTP Request node: weather alert",
   "video": "https://youtu.be/0UFrOi9PawE",
   "precisa": []
+ },
+ {
+  "slug": "webhooks-contact-form",
+  "titulo": "n8n Webhooks: contact form with a reply",
+  "video": "https://youtu.be/Iua45TakApc",
+  "precisa": [
+   "Header Auth credential, if you keep the header key"
+  ]
  }
 ]
