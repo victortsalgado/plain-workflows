@@ -12,5 +12,11 @@
   "precisa": [
    "Header Auth credential, if you keep the header key"
   ]
+ },
+ {
+  "slug": "code-node-orders-cleanup",
+  "titulo": "n8n Code node: clean orders and daily summary",
+  "video": "https://youtu.be/iKmgIhylWtc",
+  "precisa": []
  }
 ]
