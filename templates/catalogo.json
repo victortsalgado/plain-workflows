@@ -18,5 +18,13 @@
   "titulo": "n8n Code node: clean orders and daily summary",
   "video": "https://youtu.be/iKmgIhylWtc",
   "precisa": []
+ },
+ {
+  "slug": "ai-agent-order-support",
+  "titulo": "n8n AI Agent: order support with a tool and memory",
+  "video": "https://youtu.be/9QgboNqkRUk",
+  "precisa": [
+   "an Anthropic API key, or any other chat model"
+  ]
  }
 ]

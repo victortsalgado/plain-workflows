@@ -1,0 +1,128 @@
+{
+ "name": "Order support agent",
+ "nodes": [
+  {
+   "parameters": {
+    "options": {}
+   },
+   "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+   "typeVersion": 1.5,
+   "position": [
+    0,
+    0
+   ],
+   "id": "f6c42c45-15e0-4da7-9c03-ed2c389cdda2",
+   "name": "When chat message received",
+   "webhookId": "9c5e77d1-212a-4036-b2cc-28c8edf88560"
+  },
+  {
+   "parameters": {
+    "options": {
+     "systemMessage": "You are the support assistant of Plain Shop. Use the get_order tool to check any order. Never guess order details. If the tool finds nothing, say so. Answer in one or two short sentences."
+    }
+   },
+   "type": "@n8n/n8n-nodes-langchain.agent",
+   "typeVersion": 3.1,
+   "position": [
+    224,
+    0
+   ],
+   "id": "5f72a56f-32d9-4f10-a73f-0b941dec9fa3",
+   "name": "AI Agent"
+  },
+  {
+   "parameters": {
+    "model": {
+     "__rl": true,
+     "value": "claude-haiku-5-5",
+     "mode": "list",
+     "cachedResultName": "Claude Haiku 5.5"
+    },
+    "options": {}
+   },
+   "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+   "typeVersion": 1.6,
+   "position": [
+    96,
+    208
+   ],
+   "id": "cc4c6a67-2f71-4e6f-a266-22b04a3e3d58",
+   "name": "Anthropic Chat Model"
+  },
+  {
+   "parameters": {
+    "description": "Get the status of an order. The input is the order number only, like 1041.",
+    "jsCode": "const orders = {\n  \"1041\": \"Delivered on October 6\",\n  \"1042\": \"Shipped on October 9, arrives October 14\",\n  \"1043\": \"Payment failed, not shipped\",\n};\n\nreturn orders[query] ?? \"No order with this number\";"
+   },
+   "type": "@n8n/n8n-nodes-langchain.toolCode",
+   "typeVersion": 1.3,
+   "position": [
+    384,
+    208
+   ],
+   "id": "d20bec93-05fa-4831-81bc-cfb480c7ad62",
+   "name": "get_order"
+  },
+  {
+   "parameters": {},
+   "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+   "typeVersion": 1.4,
+   "position": [
+    240,
+    208
+   ],
+   "id": "991b8ba9-2ac2-46e2-95f9-ed8c8423fe23",
+   "name": "Simple Memory"
+  }
+ ],
+ "connections": {
+  "When chat message received": {
+   "main": [
+    [
+     {
+      "node": "AI Agent",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "Anthropic Chat Model": {
+   "ai_languageModel": [
+    [
+     {
+      "node": "AI Agent",
+      "type": "ai_languageModel",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "get_order": {
+   "ai_tool": [
+    [
+     {
+      "node": "AI Agent",
+      "type": "ai_tool",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "Simple Memory": {
+   "ai_memory": [
+    [
+     {
+      "node": "AI Agent",
+      "type": "ai_memory",
+      "index": 0
+     }
+    ]
+   ]
+  }
+ },
+ "settings": {
+  "executionOrder": "v1"
+ },
+ "pinData": {}
+}
