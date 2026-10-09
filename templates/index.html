@@ -1,0 +1,12 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Free n8n workflows · Plain Workflows</title><link rel="stylesheet" href="../estilo.css">
+<style>section{border-top:1px solid #ddd;padding:12px 0}button{font:inherit;cursor:pointer}.p{color:#555}</style></head><body>
+<nav><a href="../index.html">Home</a><a href="https://www.youtube.com/channel/UCuffh1Xk7VvhFSPYDGTYltw">YouTube channel</a></nav>
+<h1>Free n8n workflows</h1>
+<p>The finished workflow from each Plain Workflows tutorial. To use one: click Copy JSON, open an empty workflow in n8n
+and paste (Ctrl+V or Cmd+V), or download the file and use Import from File. Credentials are never included: add your own.</p>
+<section id="http-request-weather-alert"><h2>n8n HTTP Request node: weather alert</h2>
+<p><a href="https://youtu.be/0UFrOi9PawE">Watch the video</a> · <a href="http-request-weather-alert.json" download>Download JSON</a> · <button data-f="http-request-weather-alert.json">Copy JSON</button></p></section>
+<script>document.querySelectorAll('button[data-f]').forEach(function(b){b.onclick=function(){fetch(b.dataset.f).then(function(r){return r.text()})
+.then(function(t){navigator.clipboard.writeText(t);b.textContent='Copied';setTimeout(function(){b.textContent='Copy JSON'},1500)})}});</script>
+</body></html>
